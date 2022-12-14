@@ -2,7 +2,6 @@ from collections import deque
 import copy
 N = int(input())
 indegree,times = [[0,[]] for _ in range(N+1)],[0]*(N+1)
-ans = copy.deepcopy(times)
 for i in range(1,N+1):
     info = list(map(int,input().split()))
     times[i] = info[0]
@@ -13,6 +12,7 @@ q = deque([])
 for i in range(1,N+1):
     if indegree[i][0] == 0:
         q.append(i)
+ans = copy.deepcopy(times)
 while q:
     x = q.popleft()
     for i in indegree[x][1]:
