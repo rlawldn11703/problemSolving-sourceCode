@@ -1,7 +1,9 @@
 n = input()
 nums = list(map(int,list(n)))
-ans = 1
-for num in nums:
-    if num != 0:
-        ans *= num
+ans = nums[0]
+for i in range(1,len(nums)):
+    if nums[i] <= 1 or ans <= 1:
+        ans += nums[i]
+    else:
+        ans *= nums[i]
 print(ans)
