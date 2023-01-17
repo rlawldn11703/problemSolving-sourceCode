@@ -8,15 +8,14 @@ def divide(p):
 def ck(w):
     stack = []
     for i in w:
-        if not stack or i=='(':
+        if i=='(':
             stack.append(i)
-        elif stack[-1]=='(':
-            stack.pop()
         else:
-            stack.append(i)
-    if len(stack)==0: return True
-    else:
-        return False
+            if not stack:
+                return False
+            if stack[-1]=='(':
+                stack.pop()
+    return True
 def solution(p):
     if len(p)==0:
         return p
