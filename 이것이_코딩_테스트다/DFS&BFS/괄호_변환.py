@@ -13,8 +13,7 @@ def ck(w):
         else:
             if not stack:
                 return False
-            if stack[-1]=='(':
-                stack.pop()
+            stack.pop()
     return True
 def solution(p):
     if len(p)==0:
