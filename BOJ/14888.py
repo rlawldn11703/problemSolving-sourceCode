@@ -9,10 +9,7 @@ def cal(oper,nums):
         elif opt==2:
             ret *= nums[i+1]
         else:
-            if ret<0:
-                ret = (-ret//nums[i+1])*-1
-            else:
-                ret //= nums[i+1]
+            ret = int(ret/nums[i+1])
     return ret
 n = int(input())
 nums = list(map(int,input().split()))
