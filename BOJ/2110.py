@@ -13,7 +13,7 @@ def dist(num,c):
         return True
     else:
         return False
-left,right,result = 0,home[-1]-home[0],0
+left,right,result = 1,home[-1]-home[0],0
 while left<=right:
     mid = (left+right)//2
     if dist(mid,c):
