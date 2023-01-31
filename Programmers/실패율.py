@@ -5,9 +5,9 @@ def solution(n,stages):
     clear = sum(fail)
     for i in range(n):
         if clear == 0:
-            result[i] = (0,i+1)
+            result[i] = (i+1,0)
         else:
-            result[i] = (fail[i]/clear,i+1)
+            result[i] = (i+1,fail[i]/clear)
         clear -= fail[i]
-    result.sort(key=lambda x:(x[0],-x[1]),reverse=True)
-    return [idx for x,idx in result]
+    result.sort(key=lambda x:x[1],reverse=True)
+    return [idx for idx,_ in result]
