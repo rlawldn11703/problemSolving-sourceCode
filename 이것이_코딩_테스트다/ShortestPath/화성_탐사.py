@@ -24,11 +24,12 @@ import heapq
 T = int(input())
 for _ in range(T):
     n = int(input())
-    B,s_cost = [],[[int(1e9)]*n for _ in range(n)]
+    Board,s_cost = [],[[int(1e9)]*n for _ in range(n)]
     for _ in range(n):
-        B.append(list(map(int,input().split())))
+        Board.append(list(map(int,input().split())))
     q = []
-    heapq.heappush(q,(B[0][0],0,0))
+    heapq.heappush(q,(Board[0][0],0,0))
+    s_cost[0][0] = Board[0][0]
     dx,dy = [-1,0,1,0],[0,1,0,-1]
     while q:
         cost,x,y = heapq.heappop(q)
@@ -37,7 +38,7 @@ for _ in range(T):
         for i in range(4):
             nx,ny = x+dx[i],y+dy[i]
             if 0<=nx<n and 0<=ny<n:
-                new_cost = cost+B[nx][ny]
+                new_cost = cost+Board[nx][ny]
                 if s_cost[nx][ny] > new_cost:
                     s_cost[nx][ny] = new_cost
                     heapq.heappush(q,(new_cost,nx,ny))
