@@ -38,11 +38,8 @@ def merge_sort(arr):
         else:
             sorted_arr.append(high[r_idx])
             r_idx += 1
-    if l_idx < len(low): # 왼쪽 리스트 아직 남아있음
-        sorted_arr.extend(low[l_idx:])
-    if r_idx < len(high): # 오른쪽 리스트 아직 남아있음
-        sorted_arr.extend(high[r_idx:]) 
-    
+    sorted_arr.extend(low[l_idx:])
+    sorted_arr.extend(high[r_idx:]) 
     return sorted_arr
 ans = merge_sort(arr)
 for num in ans:
