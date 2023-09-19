@@ -39,3 +39,14 @@ def dfs(board,cnt):
         dfs(rotate_and_merge(board,dir),cnt+1)
 dfs(board,0)
 print(ans)
+
+ans = 0
+for tmp in range(4**5):
+    brute = tmp
+    board2 = deepcopy(board)
+    for _ in range(5):
+        dir = brute % 4
+        brute //= 4
+        board2 = rotate_and_merge(board2,dir)
+        ans = max(ans,max([max(row) for row in board2]))
+print(ans)
