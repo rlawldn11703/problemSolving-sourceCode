@@ -26,10 +26,13 @@ def ck(expire_date:list,today:list) -> bool:
     expire_date가 date보다 전이면 만료. True를 반환
     '''
     for i in range(3):
-        if expire_date[i] <= today[i]: # 만료
+        if expire_date[i] < today[i]: # 만료
             return True
-        else: 
+        elif expire_date[i] > today[i]: # 만료되지 않음
             return False
+        else:
+            continue
+    return True
             
 def solution(today, terms, privacies):
     answer = []
