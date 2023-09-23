@@ -1,3 +1,4 @@
+# 날짜 형태 그대로 가져가도록 코드 작성
 def cal_expiredate(date:list,n:int) -> list:
     '''
     만료일자 반환하는 함수
@@ -46,6 +47,8 @@ def solution(today, terms, privacies):
             answer.append(i+1)
     return answer
 
+# 날짜를 하나의 숫자로 치환하면 더 간단하게 해결가능
+# 날짜에 관련된 문제 나오면 하나의 숫자로 치환하는 방법 생각하기
 def to_days(date:str):
     y,m,d = map(int,date.split('.'))
     return y*28*12 + m*28 + d
