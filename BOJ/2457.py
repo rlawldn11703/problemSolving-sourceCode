@@ -1,3 +1,6 @@
+# 그리디한 관점에서 생각해보면 매번 현재 시점에서 피어있는 꽃 중에서 가장 마지막에 지는 꽃 선택
+# 만약 1일에서 1,000,000,000일 사이에서 꽃들을 정해야 하는 문제라면?
+# 현재 풀이 그대로는 시간 초과일텐데 어떻게 해결해야할까?
 n = int(input())
 flower = []
 for _ in range(n):
@@ -15,12 +18,11 @@ while s < e:
             break
         if f > nxt_s:
             nxt_s = f
-            max_idx = i
+            idx = i
     # 시간 s에서 더 이상 진전이 불가능하다면
     if nxt_s == s:
         print(0)
         exit()
     ans += 1
     s = nxt_s
-    idx = max_idx
 print(ans)
