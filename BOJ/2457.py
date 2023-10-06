@@ -14,8 +14,10 @@ nxt_s = s
 while s < e:
     for i in range(idx,n):
         b,f = flower[i]
+        # 시작일 이후에 꽃이 피면 의미없음 
         if b > s: 
             break
+        # 가장 늦게 지는 꽃 찾기
         if f > nxt_s:
             nxt_s = f
             idx = i
@@ -23,6 +25,7 @@ while s < e:
     if nxt_s == s:
         print(0)
         exit()
+    # 꽃 선택 가능하다면
     ans += 1
     s = nxt_s
 print(ans)
