@@ -1,23 +1,23 @@
 n,s = map(int,input().split())
 arr = list(map(int,input().split()))
-arr.append(0)
-l,r = 0,1
+l,r = 0,0
 partial_sum = arr[l]
 ans = int(1e9)
 while True:
     if partial_sum >= s:
-        cnt = r-l
+        cnt = r-l+1
         ans = min(ans,cnt)
         partial_sum -= arr[l]
         l += 1
     else:
-        partial_sum += arr[r]
         r += 1
-    if r == len(arr):
-        break
+        if r == n:
+            break
+        partial_sum += arr[r]
 if ans == int(1e9):
-    ans = 0
-print(ans)
+    print(0)
+else:
+    print(ans)
     
 # ans
 n, s = map(int, input().split())
