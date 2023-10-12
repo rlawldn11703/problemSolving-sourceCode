@@ -15,9 +15,8 @@ while True:
             break
         partial_sum += arr[r]
 if ans == int(1e9):
-    print(0)
-else:
-    print(ans)
+    ans = 0
+print(ans)
     
 # ans
 n, s = map(int, input().split())
