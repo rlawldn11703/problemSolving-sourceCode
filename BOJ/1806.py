@@ -1,9 +1,12 @@
+# 길이 N짜리 수열에서 
+# 연속된 수들의 부분합 중에 그 합이 S 이상이 되는 것 중, 가장 짧은 것의 길이
 n,s = map(int,input().split())
 arr = list(map(int,input().split()))
 l,r = 0,0
 partial_sum = arr[l]
 ans = int(1e9)
-while True:
+
+while l<=r:
     if partial_sum >= s:
         cnt = r-l+1
         ans = min(ans,cnt)
