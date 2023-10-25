@@ -3,17 +3,13 @@ def ck_range(x,y,max_al,max_co):
     y = min(y,max_co)
     return x,y
 
-def solution(dic):
-    '''
-    dp[i][j]: 알고력 i와 코딩력 j를 얻을 수 있는 최단 시간
-    '''
-    alp = dic['alp'] 
-    cop = dic['cop'] 
-    problems = dic['problems'] 
+def solution(alp, cop, problems):
     
     max_size = int(1e6)
     max_al = max(problems,key=lambda x:x[0])[0]
     max_co = max(problems,key=lambda x:x[1])[1]
+    
+    # alp_req, cop_req가 이미 충족되었을 수도 있음! 
     alp = min(alp,max_al)
     cop = min(cop,max_co)
     
