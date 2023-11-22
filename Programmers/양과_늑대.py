@@ -8,7 +8,7 @@ def solution(info, edges):
         graph[parent].append(child)
     to_visit = set()
     to_visit.update(graph[0])
-    def dfs(graph,info,to_visit,cnt):
+    def dfs(to_visit,cnt):
         nonlocal answer
         if cnt[0]<= cnt[1]:
             return 
@@ -18,8 +18,7 @@ def solution(info, edges):
             next_visit.remove(now)
             next_visit.update(graph[now])
             cnt[info[now]] += 1
-            dfs(graph,info,next_visit,cnt)
+            dfs(next_visit,cnt)
             cnt[info[now]] -= 1
-    dfs(graph,info,to_visit,[1,0])
+    dfs(to_visit,[1,0])
     return answer
-print(solution([0,1,0,1,1,0,1,0,0,1,0],[[0,1],[0,2],[1,3],[1,4],[2,5],[2,6],[3,7],[4,8],[6,9],[9,10]]))
